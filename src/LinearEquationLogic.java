@@ -45,4 +45,9 @@ public class LinearEquationLogic {
         System.out.println("Slope is y = " + slope + "x + " + yIntercept);
     }
 
+    private double rounddedToHundredth(double toRound) {
+        return (Math.round(toRound) * 100.0) / 100;
+    }
+
+
 }

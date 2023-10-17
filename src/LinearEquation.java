@@ -45,5 +45,10 @@ public class LinearEquation {
         return (double) coord1Y /  (coord1X * actualSlope);
     }
 
+    private double distance() {
+        return Math.sqrt(Math.pow(coord2X - coord1X, 2) + Math.pow(coord2Y - coord1Y, 2) );
+    }
+
+
 
 }
