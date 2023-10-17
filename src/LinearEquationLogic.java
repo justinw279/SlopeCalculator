@@ -42,14 +42,7 @@ public class LinearEquationLogic {
     }
 
     private void printSlope() {
-        System.out.println("Slope is y = " + slope + " + " + yIntercept);
+        System.out.println("Slope is y = " + slope + "x + " + yIntercept);
     }
-
-
-
-
-
-
-
 
 }
