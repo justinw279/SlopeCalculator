@@ -17,8 +17,6 @@ public class LinearEquationLogic {
 
     public void start() {
         calculatorUI();
-        System.out.println("Calculate again? (yes/no): ");
-        yesOrNo = scan.nextLine();
         while (yesOrNo.equals("yes")) {
             calculatorUI();
         }
@@ -47,9 +45,11 @@ public class LinearEquationLogic {
             System.out.println(linearEquation.lineInfo());
             System.out.print("Enter any x-value and get a corresponding coordinate point: ");
             double newX = scan.nextDouble();
+            scan.nextLine();
             System.out.println("Coordinate for x: " + linearEquation.coordinateforX(newX));
         }
-
+        System.out.println("Calculate again? (yes/no): ");
+        yesOrNo = scan.nextLine();
     }
 
 
