@@ -62,14 +62,11 @@ public class LinearEquation {
             slopeToReturn = "-x";
         }
         if (slope() < 0 && (coord2Y - coord1Y) % (coord2X - coord1X) != 0) {
-            slopeToReturn = "-" + (coord2Y - coord1Y) + "/" + Math.abs((coord2X - coord1X)) + "x";
-            if ((coord2Y - coord1Y) / (coord2X - coord1X) == 1.0) {
-                slopeToReturn = "x";
-            }
+            slopeToReturn = "-" + Math.abs((coord2Y - coord1Y)) + "/" + Math.abs((coord2X - coord1X)) + "x";
         } else if (slope() > 0 && (coord2Y - coord1Y) % (coord2X - coord1X) == 0) {
             slopeToReturn = (int) Math.abs(slope) + "x";
-            if ((coord2Y - coord1Y) / (coord2X - coord1X) == -1.0) {
-                slopeToReturn = "-x";
+            if ((coord2Y - coord1Y) / (coord2X - coord1X) == 1.0) {
+                slopeToReturn = "x";
             }
         }
         if (yIntercept() == 0.0) {
