@@ -39,6 +39,9 @@ public class LinearEquation {
         return slope;   }
 
     public String equation() {
+
+        String slopeToReturn = ((coord2Y - coord1Y) + "/" + (coord2X - coord1X)) + "x";
+        String yInterceptToReturn = " + " + yIntercept();
         if (coord1Y == coord2Y) {
             return "y = " + yIntercept();
         }
@@ -46,19 +49,22 @@ public class LinearEquation {
             System.out.println("slope is undefined!");
             return "undefined";
         }
-        String slopeToReturn = ((coord2Y - coord1Y) + "/" + (coord2X - coord1X)) + "x";
-        String yInterceptToReturn = " + " + yIntercept();
-
         if ((coord2Y - coord1Y) % (coord2X - coord1X) == 0) {
-            slopeToReturn += (int) slope() + "x";
+            slopeToReturn = (int) slope() + "x";
+        }
+        if ((coord2Y - coord1Y) < 0 && (coord2X - coord1X) < 0) {
+            slopeToReturn = (coord2Y - coord1Y) + "/" + Math.abs((coord2X - coord1X)) + "x";
         }
         if (slope() == 1.0) {
             slopeToReturn = "x";
         }
+        if (slope() == -1.0) {
+            slopeToReturn = "-x";
+        }
         if (slope() < 0 && (coord2Y - coord1Y) % (coord2X - coord1X) != 0) {
             slopeToReturn = "-" + (coord2Y - coord1Y) + "/" + Math.abs((coord2X - coord1X)) + "x";
-        } else if (slope() < 0 && (coord2Y - coord1Y) % (coord2X - coord1X) == 0) {
-            slopeToReturn = "-" + (int) Math.abs(slope) + "x";
+        } else if (slope() > 0 && (coord2Y - coord1Y) % (coord2X - coord1X) == 0) {
+            slopeToReturn = (int) Math.abs(slope) + "x";
         }
         if (yIntercept() == 0.0) {
             yInterceptToReturn = "";
@@ -67,7 +73,7 @@ public class LinearEquation {
             slopeToReturn = "";
         }
         if (yIntercept() < 0.0) {
-            yInterceptToReturn = " - " + yIntercept();
+            yInterceptToReturn = " - " + Math.abs(yIntercept());
         }
 
 
@@ -80,7 +86,7 @@ public class LinearEquation {
     }
 
     public double distance() {
-        return Math.sqrt(Math.pow(coord2X - coord1X, 2) + Math.pow(coord2Y - coord1Y, 2) );
+        return roundedToHundredth(Math.sqrt(Math.pow(coord2X - coord1X, 2) + Math.pow(coord2Y - coord1Y, 2)));
     }
 
     public String coordinateForX(double x) {

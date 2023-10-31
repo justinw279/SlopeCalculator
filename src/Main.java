@@ -18,7 +18,7 @@ public class Main {
         System.out.println("Coordinate for x: " + equation.coordinateForX(testX));
         System.out.println("-------------- TESTING: START METHOD BEGINS PROGRAM --------------");
         LinearEquationLogic logic = new LinearEquationLogic();
-        logic.start();
+        //logic.start();
 
 
         System.out.println("-------------- TESTING: REQUIRED TEST CASES --------------");
