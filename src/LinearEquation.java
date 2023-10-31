@@ -40,14 +40,14 @@ public class LinearEquation {
 
     public String equation() {
         if (coord1Y == coord2Y) {
-            return "y = " + yIntercept(coord1X, coord1Y);
+            return "y = " + yIntercept();
         }
         if (coord1X == coord2X) {
             System.out.println("slope is undefined!");
             return "undefined";
         }
         String slopeToReturn = ((coord2Y - coord1Y) + "/" + (coord2X - coord1X)) + "x";
-        String yInterceptToReturn = " + " + yIntercept(coord1X, coord1Y);
+        String yInterceptToReturn = " + " + yIntercept();
 
         if ((coord2Y - coord1Y) % (coord2X - coord1X) == 0) {
             slopeToReturn += (int) slope() + "x";
@@ -60,35 +60,35 @@ public class LinearEquation {
         } else if (slope() < 0 && (coord2Y - coord1Y) % (coord2X - coord1X) == 0) {
             slopeToReturn = "-" + (int) Math.abs(slope) + "x";
         }
-        if (yIntercept(coord1X, coord1Y) == 0.0) {
+        if (yIntercept() == 0.0) {
             yInterceptToReturn = "";
         }
         if (slope() == 0.0) {
             slopeToReturn = "";
         }
-        if (yIntercept(coord1X, coord1Y) < 0.0) {
-            yInterceptToReturn = " - " + yIntercept(coord1X, coord1Y);
+        if (yIntercept() < 0.0) {
+            yInterceptToReturn = " - " + yIntercept();
         }
 
 
-        double intercept = yIntercept(coord1X, coord1Y);
+        double intercept = yIntercept();
         return "y = " + slopeToReturn + yInterceptToReturn;
     }
 
-    public double yIntercept(int coord1X, int coord1Y) {
+    public double yIntercept() {
         return roundedToHundredth(coord1Y - (coord1X * slope));
     }
 
-    private double distance() {
+    public double distance() {
         return Math.sqrt(Math.pow(coord2X - coord1X, 2) + Math.pow(coord2Y - coord1Y, 2) );
     }
 
-    public String coordinateforX(double x) {
-        return "(" + x + ", " + (slope * x + yIntercept(coord1X, coord1Y)) + ")";
+    public String coordinateForX(double x) {
+        return "(" + x + ", " + (slope * x + yIntercept()) + ")";
     }
 
     public String lineInfo() {
-        return "The two points are: (" + coord1X + ", " + coord1Y + ") and (" + coord2X + ", " + coord2Y + ")\nThe equation of the line between these points is: " + equation() + "\nThe slope of this line is " + slope() + "\nThe y-intercept of this line is: " + yIntercept(coord1X, coord1Y) + "\nThe distance between these points is: " + roundedToHundredth(distance());
+        return "The two points are: (" + coord1X + ", " + coord1Y + ") and (" + coord2X + ", " + coord2Y + ")\nThe equation of the line between these points is: " + equation() + "\nThe slope of this line is " + slope() + "\nThe y-intercept of this line is: " + yIntercept() + "\nThe distance between these points is: " + roundedToHundredth(distance());
     
     }
 

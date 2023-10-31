@@ -46,7 +46,7 @@ public class LinearEquationLogic {
             System.out.print("Enter any x-value and get a corresponding coordinate point: ");
             double newX = scan.nextDouble();
             scan.nextLine();
-            System.out.println("Coordinate for x: " + linearEquation.coordinateforX(newX));
+            System.out.println("Coordinate for x: " + linearEquation.coordinateForX(newX));
         }
         System.out.println("Calculate again? (yes/no): ");
         yesOrNo = scan.nextLine();
